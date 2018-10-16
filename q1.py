@@ -4,6 +4,12 @@ import numpy as np
 import sys
 
 # modify this function, and create other functions below as you wish
+def question01(portfolios):
+  # modify and then return the variable below
+  mat = matrix(portfolios)
+  answer = np.max(mat)
+  return answer
+
 def max(portfolios):
   # find max merged portfoli from matrix
   mat = matrix(portfolios)
