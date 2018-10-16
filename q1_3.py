@@ -26,6 +26,23 @@ def question01(portfolios):
       for i in range(15,-1,-1):
         d += c[i] * 2**(15-i)
       mat[i, j] = d
+  value = np.max(mat)
   #index = np.where(mat == value) 
-  answer = np.max(mat)
-  return answer
+  return value
+
+ 
+#portfolios = np.random.randint(65535, size=int(sys.argv[1]))
+#portfolios = np.array([31318, 60888, 13074, 22511, 55982, 17233, 44421, 47235, 48325, 9176])
+
+#a = question01(portfolios)
+#print a
+
+#print portfolios
+
+#value, index = max(portfolios)
+
+#print "the max merged portfolio has a value of:", value, "and is created by the merging of portfolio", index[0][0] + 1, "and portfolio", index[1][0] + 1
+
+
+
+

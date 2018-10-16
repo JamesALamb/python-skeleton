@@ -2,6 +2,7 @@
 
 import numpy as np
 
+#compute all combinations for two portfolios
 def question06(numServers, targetServer, times):
   # modify and then return the variable below
   answer = -1
