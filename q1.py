@@ -46,19 +46,19 @@ def decimal(binary):
 
 def merge(value1, value2):
   # find value of merged portfolios
-  print value1
-  print value2
+#  print value1
+#  print value2
   a = binary(value1)
   b = binary(value2)
-  print a
-  print b
+#  print a
+#  print b
   c = np.add(binary(value1), binary(value2))
-  print c
+#  print c
   for i in range(len(c)):
     c[i] %= 2
-  print c
+#  print c
   value = decimal(c)
-  print value
+#  print value
   return value
 
 def matrix(portfolios):
@@ -70,14 +70,14 @@ def matrix(portfolios):
       mat[i, j] = merge(portfolios[i], portfolios[j])
   return mat
  
-portfolios = np.random.randint(65535, size=int(sys.argv[1]))
+#portfolios = np.random.randint(65535, size=int(sys.argv[1]))
 #portfolios = np.array([31318, 60888, 13074, 22511, 55982, 17233, 44421, 47235, 48325, 9176])
 
-print portfolios
+#print portfolios
 
-value, index = max(portfolios)
+#value, index = max(portfolios)
 
-print "the max merged portfolio has a value of:", value, "and is created by the merging of portfolio", index[0][0] + 1, "and portfolio", index[1][0] + 1
+#print "the max merged portfolio has a value of:", value, "and is created by the merging of portfolio", index[0][0] + 1, "and portfolio", index[1][0] + 1
 
 
 
