@@ -11,39 +11,54 @@ def question01(portfolios):
   index = [0,0]
   for i in range(len(portfolios)):
     for j in range(i+1, len(portfolios)):
-      a = np.zeros((16,), dtype=int)
-      b = np.zeros((16,), dtype=int)
-      p1 = portfolios[i]
-      p2 = portfolios[j]
-      for k in range(15,-1,-1):
-        if (p1 - 2**k >= 0):
-          p1 -= 2**k
-          a[15-k] = 1
-        if (p2 - 2**k >= 0):
-          p2 -= 2**k
-          b[15-k] = 1
-      c = np.add(a, b)
-      #for k in range(len(c)):
-        #c[k] %= 2
-      d = 0
-      for k in range(16):
-        if (c[k] == 1):
-          d += c[k] * 2**(15-k)
-      if (d > answer):
-        answer = d
-        index = [i,j]
-      #mat[i, j] = d
-  #index = np.where(mat == value) 
-  #answer = np.max(mat)
-  return answer
+      if ( answer < 2**15 ):
+        a = np.zeros((16,), dtype=int)
+        b = np.zeros((16,), dtype=int)
+        p1 = portfolios[i]
+        p2 = portfolios[j]
+        for k in range(15,-1,-1):
+          if (p1 - 2**k >= 0):
+            p1 -= 2**k
+            a[15-k] = 1
+          if (p2 - 2**k >= 0):
+            p2 -= 2**k
+            b[15-k] = 1
+        c = np.add(a, b)
+        d = 0
+        for k in range(16):
+          if (c[k] == 1):
+            d += c[k] * 2**(15-k)
+        if (d > answer):
+          answer = d
+          index = [i+1,j+1]
+      elif ( (portfolios[i] >= 2**15 and portfolios[j] < 2**15) or (portfolios[j] >= 2**15 and portfolios[i] < 2**15) ):
+        a = np.zeros((16,), dtype=int)
+        b = np.zeros((16,), dtype=int)
+        p1 = portfolios[i]
+        p2 = portfolios[j]
+        for k in range(15,-1,-1):
+          if (p1 - 2**k >= 0):
+            p1 -= 2**k
+            a[15-k] = 1
+          if (p2 - 2**k >= 0):
+            p2 -= 2**k
+            b[15-k] = 1
+        c = np.add(a, b)
+        d = 0
+        for k in range(16):
+          if (c[k] == 1):
+            d += c[k] * 2**(15-k)
+        if (d > answer):
+          answer = d
+          index = [i+1,j+1]
+  return answer, index
 
 def max(portfolios):
   # find max merged portfoli from matrix
   mat = matrix(portfolios)
   value = np.max(mat)
   index = np.where(mat == value) 
-  print value
-  print index
+  print value, index
   return value, index
 
 def binary(decimal):
@@ -102,9 +117,9 @@ portfolios = np.random.randint(65535, size=int(sys.argv[1]))
 
 #print portfolios
 
-answer = question01(portfolios)
+answer, index = question01(portfolios)
 
-print answer
+print answer, index
 
 value, index = max(portfolios)
 
