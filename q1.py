@@ -14,24 +14,28 @@ def question01(portfolios):
           if (a[0] != b[0]) and (a[1] != b[1]) and (a[2] != b[2]) and (a[3] != b[3]) and (a[4] != b[4]):
             d = merge(a, b)
             if (d > answer):
-        if ( answer >= (2**15 + 2**14 + 2**13 + 2**12) ):
+              answer = d
+        elif ( answer >= (2**15 + 2**14 + 2**13 + 2**12) ):
           if (a[0] != b[0]) and (a[1] != b[1]) and (a[2] != b[2]) and (a[3] != b[3]):
             d = merge(a, b)
             if (d > answer):
               answer = d
-        if ( answer >= (2**15 + 2**14 + 2**13) ):
+        elif ( answer >= (2**15 + 2**14 + 2**13) ):
           if (a[0] != b[0]) and (a[1] != b[1]) and (a[2] != b[2]):
             d = merge(a, b)
             if (d > answer):
-        if ( answer >= (2**15 + 2**14) ):
+              answer = d
+        elif ( answer >= (2**15 + 2**14) ):
           if (a[0] != b[0]) and (a[1] != b[1]):
             d = merge(a, b)
             if (d > answer):
-        if ( answer >= 2**15 ):
+              answer = d
+        elif ( answer >= 2**15 ):
           if (a[0] != b[0]):
             d = merge(a, b)
             if (d > answer):
-        if ( answer < 2**15 ):
+              answer = d
+        else:
           d = merge(a, b) 
           if (d > answer):
             answer = d
