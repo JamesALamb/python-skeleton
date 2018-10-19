@@ -8,37 +8,64 @@ def question01(portfolios):
   answer = 0
   for i in range(len(portfolios)):
     for j in range(i+1, len(portfolios)):
-        a = binary(portfolios[i])
-        b = binary(portfolios[j])
         if ( answer >= (2**15 + 2**14 + 2**13 + 2**12 + 2**11) ):
-          if (a[0] != b[0]) and (a[1] != b[1]) and (a[2] != b[2]) and (a[3] != b[3]) and (a[4] != b[4]):
-            d = merge(a, b)
-            if (d > answer):
-              answer = d
+          if ( (portfolios[i] >= 2**15 and portfolios[j] < 2**15) or (portfolios[j] >= 2**15 and portfolios[i] < 2**15) ):
+            a = binary(portfolios[i])
+            b = binary(portfolios[j])
+            if (a[0] != b[0]) and (a[1] != b[1]) and (a[2] != b[2]) and (a[3] != b[3]) and (a[4] != b[4]):
+              d = merge(a, b)
+              if (d > answer):
+
+                answer = d
+
         elif ( answer >= (2**15 + 2**14 + 2**13 + 2**12) ):
-          if (a[0] != b[0]) and (a[1] != b[1]) and (a[2] != b[2]) and (a[3] != b[3]):
-            d = merge(a, b)
-            if (d > answer):
-              answer = d
+          if ( (portfolios[i] >= 2**15 and portfolios[j] < 2**15) or (portfolios[j] >= 2**15 and portfolios[i] < 2**15) ):
+            a = binary(portfolios[i])
+            b = binary(portfolios[j])
+            if (a[0] != b[0]) and (a[1] != b[1]) and (a[2] != b[2]) and (a[3] != b[3]):
+              d = merge(a, b)
+              if (d > answer):
+
+                answer = d
+
         elif ( answer >= (2**15 + 2**14 + 2**13) ):
-          if (a[0] != b[0]) and (a[1] != b[1]) and (a[2] != b[2]):
-            d = merge(a, b)
-            if (d > answer):
-              answer = d
+          if ( (portfolios[i] >= 2**15 and portfolios[j] < 2**15) or (portfolios[j] >= 2**15 and portfolios[i] < 2**15) ):
+            a = binary(portfolios[i])
+            b = binary(portfolios[j])
+            if (a[0] != b[0]) and (a[1] != b[1]) and (a[2] != b[2]):
+              d = merge(a, b)
+              if (d > answer):
+
+                answer = d
+
         elif ( answer >= (2**15 + 2**14) ):
-          if (a[0] != b[0]) and (a[1] != b[1]):
-            d = merge(a, b)
-            if (d > answer):
-              answer = d
+          if ( (portfolios[i] >= 2**15 and portfolios[j] < 2**15) or (portfolios[j] >= 2**15 and portfolios[i] < 2**15) ):
+            a = binary(portfolios[i])
+            b = binary(portfolios[j])
+            if (a[0] != b[0]) and (a[1] != b[1]):
+              d = merge(a, b)
+              if (d > answer):
+
+                answer = d
+
         elif ( answer >= 2**15 ):
-          if (a[0] != b[0]):
-            d = merge(a, b)
-            if (d > answer):
-              answer = d
+          if ( (portfolios[i] >= 2**15 and portfolios[j] < 2**15) or (portfolios[j] >= 2**15 and portfolios[i] < 2**15) ):
+            a = binary(portfolios[i])
+            b = binary(portfolios[j])
+            if (a[0] != b[0]):
+              d = merge(a, b)
+              if (d > answer):
+
+                answer = d
+
         else:
+          a = binary(portfolios[i])
+          b = binary(portfolios[j])
           d = merge(a, b) 
           if (d > answer):
+
             answer = d
+
   return answer
 
 def binary(decimal):
