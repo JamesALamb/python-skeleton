@@ -1,10 +1,10 @@
 # ONLY EDIT FUNCTIONS MARKED CLEARLY FOR EDITING
 
 import numpy as np
-import sys
+#import sys
 
-cashFlowIn = np.random.randint(100, size=int(sys.argv[1]))
-cashFlowOut = np.random.randint(100, size=int(sys.argv[2]))
+#cashFlowIn = np.random.randint(100, size=int(sys.argv[1]))
+#cashFlowOut = np.random.randint(100, size=int(sys.argv[2]))
 
 #compute all combinations for two portfolios
 def question02(cashFlowIn, cashFlowOut):
