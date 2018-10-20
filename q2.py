@@ -17,4 +17,4 @@ def question02(cashFlowIn, cashFlowOut):
   answer = -1
   return answer
 
-answer = question02(cashFlowIn, cashFlowOut)
+#answer = question02(cashFlowIn, cashFlowOut)
