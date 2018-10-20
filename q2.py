@@ -12,8 +12,7 @@ def question02(cashFlowIn, cashFlowOut):
   I = np.array(cashFlowIn)
   O = - np.array(cashFlowOut)
   combined = np.append(I,O)
-  print combined
-
+  
 
   answer = -1
   return answer
