@@ -12,20 +12,22 @@ def question04(rows, numberMachines):
   # modify and then return the variable below
   totals = []
   for row in rows:
+    numberX = row.count('X')
     c = 0
     values = []
-    for i in row:
-      if i != 'X':
-        values.insert(0, i)
-        c+=1
-        if c >= numberMachines:
-          total=0
-          for j in range(numberMachines):
-            total += values[j]
-          totals.append(total)
-      else:
-        c = 0
-        values = []
+    if ( numberX + numberMachines <= len(row) ):
+      for i in row:
+        if i != 'X':
+          values.insert(0, int(i))
+          c+=1
+          if c >= numberMachines:
+            total=0
+            for j in range(numberMachines):
+              total += values[j]
+            totals.append(total)
+        if i == 'X':
+          c = 0
+          values = []
 
   if totals == []:
     answer = 0

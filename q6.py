@@ -7,16 +7,16 @@ def question06(numServers, targetServer, times):
   fastest_times = times[0]
   visited = [0]
   visit = 0
-  for i in range(numServers):
-    for j in range(1,numServers):
+  for i in range(len(times[visit])):
+    for j in range(1, len(times[visit])):
       if visit in visited:
-        visit = fastest_times.index(sorted(fastest_times)[j])
+        visit = times[visit].index(sorted(times[visit])[j])
       else:
         break
     visited.append(visit)
     #update times
     new_times = times[visit]
-    for j in range(numServers):
+    for j in range(len(times[visit])):
       if (new_times[j] + fastest_times[visit] < fastest_times[j]):
         fastest_times[j] = new_times[j] + fastest_times[visit]
     if (visit == targetServer):

@@ -7,18 +7,25 @@ import numpy as np
 
 def question05(allowedAllocations, totalValue):
   # modify and then return the variable below
-  allowedAllocations.sort(reverse=True)
-  count = 0
-  value = 0
-  for i in range(len(allowedAllocations)):
-    value += allowedAllocations[i]
-    count +=1
-    if value >= totalValue:
-      break
+  if sum(allowedAllocations) > totalValue:
+    allowedAllocations.sort(reverse=True)
+    count = 0
+    value = 0
+    for i in range(len(allowedAllocations)):
+      value += allowedAllocations[i]
+      count +=1
+      if value >= totalValue:
+        break
 
-  answer = count
+    answer = count
 
-  return answer
+    return answer
+
+  else:
+
+    answer = 0
+
+    return answer
 
 #answer = question05(allowedAllocations, totalValue)
 
