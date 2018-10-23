@@ -6,54 +6,56 @@ import numpy as np
 def question01(portfolios):
   # modify and then return the variable below
   answer = 0
-  print portfolios
+  if portfolios == []:
+    return 0
+  big = len(bin(max(portfolios)))
   for i in range(len(portfolios)):
     for j in range(i+1, len(portfolios)): 
-      if (portfolios[i] < 2**16 and portfolios[j] < 2**16):
-        if ( answer >= (2**15 + 2**14 + 2**13 + 2**12 + 2**11) ):
-          if ( (portfolios[i] >= 2**15 and portfolios[j] < 2**15) or (portfolios[j] >= 2**15 and portfolios[i] < 2**15) ):
-            a = bin(portfolios[i])[2:].zfill(16)
-            b = bin(portfolios[j])[2:].zfill(16)
+      if (portfolios[i] < 2**big and portfolios[j] < 2**big):
+        if ( answer >= (2**(big-1) + 2**(big-2) + 2**(big-3) + 2**(big-4) + 2**(big-4)) ):
+          if ( (portfolios[i] >= 2**(big-1) and portfolios[j] < 2**(big-1)) or (portfolios[j] >= 2**(big-1) and portfolios[i] < 2**(big-1)) ):
+            a = bin(portfolios[i])[2:].zfill(big)
+            b = bin(portfolios[j])[2:].zfill(big)
             if (a[0] != b[0]) and (a[1] != b[1]) and (a[2] != b[2]) and (a[3] != b[3]) and (a[4] != b[4]):
               c = merge(a, b)
               if (c > answer):
   
                 answer = c
   
-        elif ( answer >= (2**15 + 2**14 + 2**13 + 2**12) ):
-          if ( (portfolios[i] >= 2**15 and portfolios[j] < 2**15) or (portfolios[j] >= 2**15 and portfolios[i] < 2**15) ):
-            a = bin(portfolios[i])[2:].zfill(16)
-            b = bin(portfolios[j])[2:].zfill(16)
+        elif ( answer >= (2**(big-1) + 2**(big-2) + 2**(big-3) + 2**(big-4)) ):
+          if ( (portfolios[i] >= 2**(big-1) and portfolios[j] < 2**(big-1)) or (portfolios[j] >= 2**(big-1) and portfolios[i] < 2**(big-1)) ):
+            a = bin(portfolios[i])[2:].zfill(big)
+            b = bin(portfolios[j])[2:].zfill(big)
             if (a[0] != b[0]) and (a[1] != b[1]) and (a[2] != b[2]) and (a[3] != b[3]):
               c = merge(a, b)
               if (c > answer):
   
                 answer = c
   
-        elif ( answer >= (2**15 + 2**14 + 2**13) ):
-          if ( (portfolios[i] >= 2**15 and portfolios[j] < 2**15) or (portfolios[j] >= 2**15 and portfolios[i] < 2**15) ):
-            a = bin(portfolios[i])[2:].zfill(16)
-            b = bin(portfolios[j])[2:].zfill(16)
+        elif ( answer >= (2**(big-1) + 2**(big-2) + 2**(big-3)) ):
+          if ( (portfolios[i] >= 2**(big-1) and portfolios[j] < 2**(big-1)) or (portfolios[j] >= 2**(big-1) and portfolios[i] < 2**(big-1)) ):
+            a = bin(portfolios[i])[2:].zfill(big)
+            b = bin(portfolios[j])[2:].zfill(big)
             if (a[0] != b[0]) and (a[1] != b[1]) and (a[2] != b[2]):
               c = merge(a, b)
               if (c > answer):
   
                 answer = c
   
-        elif ( answer >= (2**15 + 2**14) ):
-          if ( (portfolios[i] >= 2**15 and portfolios[j] < 2**15) or (portfolios[j] >= 2**15 and portfolios[i] < 2**15) ):
-            a = bin(portfolios[i])[2:].zfill(16)
-            b = bin(portfolios[j])[2:].zfill(16)
+        elif ( answer >= (2**(big-1) + 2**(big-2)) ):
+          if ( (portfolios[i] >= 2**(big-1) and portfolios[j] < 2**(big-1)) or (portfolios[j] >= 2**(big-1) and portfolios[i] < 2**(big-1)) ):
+            a = bin(portfolios[i])[2:].zfill(big)
+            b = bin(portfolios[j])[2:].zfill(big)
             if (a[0] != b[0]) and (a[1] != b[1]):
               c = merge(a, b)
               if (c > answer):
   
                 answer = c
   
-        elif ( answer >= 2**15 ):
-          if ( (portfolios[i] >= 2**15 and portfolios[j] < 2**15) or (portfolios[j] >= 2**15 and portfolios[i] < 2**15) ):
-            a = bin(portfolios[i])[2:].zfill(16)
-            b = bin(portfolios[j])[2:].zfill(16)
+        elif ( answer >= (2**(big-1)) ):
+          if ( (portfolios[i] >= 2**(big-1) and portfolios[j] < 2**(big-1)) or (portfolios[j] >= 2**(big-1) and portfolios[i] < 2**(big-1)) ):
+            a = bin(portfolios[i])[2:].zfill(big)
+            b = bin(portfolios[j])[2:].zfill(big)
             if (a[0] != b[0]):
               c = merge(a, b)
               if (c > answer):
@@ -61,8 +63,8 @@ def question01(portfolios):
                 answer = c
   
         else:
-          a = bin(portfolios[i])[2:].zfill(16)
-          b = bin(portfolios[j])[2:].zfill(16)
+          a = bin(portfolios[i])[2:].zfill(big)
+          b = bin(portfolios[j])[2:].zfill(big)
           c = merge(a, b) 
           if (c > answer):
   
@@ -83,3 +85,9 @@ def merge(a, b):
   c = ''.join(c)
   c = int(c, 2)
   return c
+
+#portfolios = [1588038419, 1603264833, 2029937021, 713941009, 923957192, 1118942085, 59239954, 837238868, 753246235, 1403394345, 886500603, 1648810182, 1540165060, 1680351736, 1044516203, 1655352860, 1381992751]
+
+#answer = question01(portfolios)
+
+#print answer
