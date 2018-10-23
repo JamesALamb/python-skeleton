@@ -19,10 +19,10 @@ def question02(cashFlowIn, cashFlowOut):
   B = sum(cashFlowOut)
   small = min(cashFlowIn)
   mat = np.full((len(combined)+1, A+B+1), False, dtype=bool)
-  print combined, mat.shape
+#  print combined, mat.shape
   for i in range(1,len(mat)):
-    print np.count_nonzero(mat)
-    print mat[i-1,:]
+#    print np.count_nonzero(mat)
+#    print mat[i-1,:]
     for j in range(len(mat[0])):
       if (combined[i-1] == j-B):
 #        print i,j, combined[i-1], j-B
@@ -37,7 +37,7 @@ def question02(cashFlowIn, cashFlowOut):
 #        print i, j, combined[i-1], j-combined[i-1]
           mat[i,j] = True
 #        print mat[:,j]
-  for i in range(small):
+  for i in range(small+1):
 #    print B+i, mat[:,B+i]
     if mat[len(combined),B+i]:
 

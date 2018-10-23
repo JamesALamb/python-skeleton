@@ -6,8 +6,9 @@ import numpy as np
 def question01(portfolios):
   # modify and then return the variable below
   answer = 0
+  print portfolios
   for i in range(len(portfolios)):
-    for j in range(i+1, len(portfolios)):
+    for j in range(i+1, len(portfolios)): 
       if (portfolios[i] < 2**16 and portfolios[j] < 2**16):
         if ( answer >= (2**15 + 2**14 + 2**13 + 2**12 + 2**11) ):
           if ( (portfolios[i] >= 2**15 and portfolios[j] < 2**15) or (portfolios[j] >= 2**15 and portfolios[i] < 2**15) ):

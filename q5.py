@@ -6,6 +6,7 @@ import numpy as np
 #allowedAllocations, totalValue = [3, 4], 6
 
 def question05(allowedAllocations, totalValue):
+  print allowedAllocations, totalValue
   # modify and then return the variable below
   if sum(allowedAllocations) > totalValue:
     allowedAllocations.sort(reverse=True)
