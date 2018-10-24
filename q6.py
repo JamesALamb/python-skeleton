@@ -4,6 +4,7 @@ import numpy as np
 
 def question06(numServers, targetServer, times):
   # modify and then return the variable below
+#  print numServers, targetServer, times
   fastest_times = times[0]
   visited = [0]
   visit = 0
