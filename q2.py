@@ -10,14 +10,12 @@ def question02(cashFlowIn, cashFlowOut):
   I = np.array(cashFlowIn)
   O = - np.array(cashFlowOut)
   combined = np.append(I,O)
-  print combined
   A = sum(cashFlowIn)
   B = sum(cashFlowOut)
   mat = np.full((len(combined)+1, A+B+1), False, dtype=bool)
   for i in range(1,len(mat)):
     for j in range(len(mat[0])):
       if (combined[i-1] == j-B):
-        print combined[i-1]
         mat[i,j] = True
         if j == B:
 
