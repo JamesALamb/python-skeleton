@@ -10,6 +10,7 @@ X = 'X'
 #compute all combinations for two portfolios
 def question04(rows, numberMachines):
   # modify and then return the variable below
+  print rows, numberMachines
   totals = []
   for row in rows:
     numberX = row.count('X')

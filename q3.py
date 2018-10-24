@@ -12,7 +12,7 @@ import numpy as np
 
 def question03(numNodes, edgeList):
   # modify and then return the variable below
-#  print numNodes, edgeList
+  print numNodes, edgeList
   TrEx=set(range(1,numNodes+1))
   NotTrEx=set()
   

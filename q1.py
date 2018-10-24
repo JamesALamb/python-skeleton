@@ -5,6 +5,7 @@ import numpy as np
 # modify this function, and create other functions below as you wish
 def question01(portfolios):
   # modify and then return the variable below
+  print portfolios
   answer = 0
   if portfolios == []:
     return 0
