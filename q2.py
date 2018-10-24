@@ -12,6 +12,7 @@ import numpy as np
 #compute all combinations for two portfolios
 def question02(cashFlowIn, cashFlowOut):
   # modify and then return the variable below
+  print cashFlowIn, cashFlowOut
   I = np.array(cashFlowIn)
   O = - np.array(cashFlowOut)
   combined = np.append(I,O)
