@@ -1,30 +1,56 @@
 # ONLY EDIT FUNCTIONS MARKED CLEARLY FOR EDITING
 
 import numpy as np
-import timeit
+#import timeit
 
 #compute all combinations for two portfolios
 def question02(cashFlowIn, cashFlowOut):
-  print cashFlowIn, cashFlowOut
+  #print cashFlowIn, cashFlowOut
   # modify and then return the variable below
-  print cashFlowIn, cashFlowOut
   I = np.array(cashFlowIn)
   O = - np.array(cashFlowOut)
   combined = np.append(I,O)
+  print combined
   A = sum(cashFlowIn)
   B = sum(cashFlowOut)
   mat = np.full((len(combined)+1, A+B+1), False, dtype=bool)
   for i in range(1,len(mat)):
     for j in range(len(mat[0])):
       if (combined[i-1] == j-B):
+        print combined[i-1]
         mat[i,j] = True
+        if j == B:
+
+          answer = 0
+          return answer
+
       if mat[i-1,j]:
         mat[i,j] = True
+        if j == B:
+
+          answer = 0
+          return answer
+
       if ( j-combined[i-1] >= 0 ) and ( j-combined[i-1] < len(mat[0]) ):
         if mat[i-1,j-combined[i-1]]:
           mat[i,j] = True
+          if j == B:
 
-  answer = mat[len(combined)][B:B+min(cashFlowIn)+1].tolist().index(True)
+            answer = 0
+            return answer
+
+  answer = mat[len(combined),B:B+min(cashFlowIn)+1].tolist().index(True)
+
+  #i = 0
+  #index = []
+  #subset = []
+  #while 1 not in index:
+    #ind = mat[:,B+answer-i].tolist().index(True)
+    #index.append(ind)
+    #subset.append(combined[ind-1])
+    #i += combined[ind-1]
+
+  #print index, subset, sum(subset)
 
   return answer
 
