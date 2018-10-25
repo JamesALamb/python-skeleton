@@ -15,18 +15,17 @@ def question01(portfolios):
       a = bin(portfolios[i])[2:].zfill(big)
       b = bin(portfolios[j])[2:].zfill(big)
       if answer < 2**(big-1):
-        c = merge(a, b)
-        d = c.index('0')
-        c = int(c, 2)
-        if (c > answer):
+        if a[0] != b[0]:
+          c = merge(a, b)
+          d = c.index('0')
 
-          answer = c
+          answer = int(c, 2)
 
       else:
         e = merge(a[:d], b[:d])
         f = '1'*(d)
         if e == f:
-          c = merge(a[d:], b[d:])
+          c = merge(a[e:], b[e:])
           c = f + c
           if '0' in c:
             d = c.index('0')
@@ -53,8 +52,8 @@ def merge(a, b):
   c = ''.join(c)
   return c
 
-portfolios = [1588038419, 1603264833, 2029937021, 713941009, 923957192, 1118942085, 59239954, 837238868, 753246235, 1403394345, 886500603, 1648810182, 1540165060, 1680351736, 1044516203, 1655352860, 1381992751]
+#portfolios = [1588038419, 1603264833, 2029937021, 713941009, 923957192, 1118942085, 59239954, 837238868, 753246235, 1403394345, 886500603, 1648810182, 1540165060, 1680351736, 1044516203, 1655352860, 1381992751]
 
-answer = question01(portfolios)
+#answer = question01(portfolios)
 
-print answer
+#print answer

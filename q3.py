@@ -27,6 +27,7 @@ def question03(numNodes, edgeList):
 #  NewList = [x for x in edgeList if a not in x]
 
   NewList = edgeList
+
   while len(NewList) > 0:
     Count = [ [0] for i in range(numnodes) ]
     for i in TrEx:
@@ -48,7 +49,6 @@ def question03(numNodes, edgeList):
 #        Y += 1
 #        break
   
-#  print X, Y
   answer = X-Y
 
   return answer
