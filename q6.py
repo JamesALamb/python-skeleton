@@ -4,7 +4,13 @@ import numpy as np
 
 def question06(numServers, targetServer, times):
   # modify and then return the variable below
-  print numServers, targetServer, times
+  #print numServers, targetServer, times
+  if targetServer == 0:
+
+    answer = 0
+
+    return answer
+
   fastest_times = times[0]
   visited = [0]
   visit = 0
@@ -15,7 +21,6 @@ def question06(numServers, targetServer, times):
       else:
         break
     visited.append(visit)
-    #update times
     new_times = times[visit]
     for j in range(len(times[visit])):
       if (new_times[j] + fastest_times[visit] < fastest_times[j]):
