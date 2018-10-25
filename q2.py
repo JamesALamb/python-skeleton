@@ -38,20 +38,14 @@ def question02(cashFlowIn, cashFlowOut):
 
   answer = mat[len(combined),B:B+min(cashFlowIn)+1].tolist().index(True)
 
-  #index = []
-  #subset = []
-
   #ind = mat[:,B+answer-sum(subset)].tolist().index(True)
-  #print subset, mat[:,B+answer-sum(subset)], ind, combined[ind-1], combined[ind]
-  #index.append(ind)
-  #subset.append(combined[ind-1])
+  #index = [ind]
+  #subset = [combined[ind-1]]
 
   #while sum(subset) != answer:
     #ind = mat[:,B+answer-sum(subset)].tolist().index(True)
     #index.append(ind)
     #subset.append(combined[ind-1])
-
-  #print index, subset, sum(subset)
 
   return answer
 
