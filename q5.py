@@ -3,8 +3,8 @@
 import numpy as np
 
 def question05(allowedAllocations, totalValue):
-  print allowedAllocations, totalValue
   # modify and then return the variable below
+  print allowedAllocations, totalValue
   allowedAllocations.sort(reverse=True)
   if sum(allowedAllocations) >= totalValue:
     count = 1
