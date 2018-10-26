@@ -227,6 +227,7 @@ def runq5_main():
             return_dict = Manager().dict()
             q5test = q5tests[testnumber]
             q5input = q5test["input"]
+            print(q5input, q5test["output"]) #######
             p = Process(target=runq5, args=(q5input, return_dict))
             p.start()
 
