@@ -5,7 +5,6 @@ import numpy as np
 # modify this function, and create other functions below as you wish
 def question01(portfolios):
   # modify and then return the variable below
-  #print portfolios
   if portfolios == []:
     return 0
   big = len(bin(max(portfolios))[2:])
@@ -25,7 +24,6 @@ def question01(portfolios):
           c = merge(a, b)
           d0 = c.index('0')
           d1 = c.index('1')
-          #index = [i,j]
 
           answer = int(c, 2)
 
@@ -35,7 +33,6 @@ def question01(portfolios):
           if ans > answer:
             d0 = c.index('0')
             d1 = c.index('1')
-            #index = [i,j]
 
             answer = ans
 
@@ -50,12 +47,10 @@ def question01(portfolios):
             if ans > answer:
               d0 = c.index('0')
               d1 = c.index('1')
-              #index = [i,j]
 
               answer = ans
 
           else:
-            #index = [i,j]
 
             answer = int(c, 2)
 
@@ -74,9 +69,3 @@ def merge(a, b):
   c = [ str(x) for x in c ]
   c = ''.join(c)
   return c
-
-#portfolios = [1588038419, 1603264833, 2029937021, 713941009, 923957192, 1118942085, 59239954, 837238868, 753246235, 1403394345, 886500603, 1648810182, 1540165060, 1680351736, 1044516203, 1655352860, 1381992751]
-
-#answer = question01(portfolios)
-
-#print answer

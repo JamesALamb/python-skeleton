@@ -4,7 +4,6 @@ import numpy as np
 
 def question06(numServers, targetServer, times):
   # modify and then return the variable below
-  #print numServers, targetServer, times
   if targetServer == 0:
 
     answer = 0
