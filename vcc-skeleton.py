@@ -87,6 +87,7 @@ def runq2_main():
             if p.is_alive():
                 # Terminate
                 print("A question 2 test has timed out. Each individual test has a maximum of one second to run.")
+                print(q2test["input"] ,q2test["output"])
                 p.terminate()
                 p.join()
             else:
