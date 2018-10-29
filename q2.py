@@ -10,16 +10,14 @@ def question02(cashFlowIn, cashFlowOut):
   combined = np.append(O,I)
   if 0 in combined:
 
-    answer = 0
+    return = 0
 
-    return answer
-
-  A = sum(cashFlowIn)
-  B = sum(cashFlowOut)
+  A = sum(cashFlowOut)
+  B = min(cashFlowIn)
   mat = np.full((len(combined)+1, A+B+1), False, dtype=bool)
   for i in range(1,len(mat)):
     for j in range(len(mat[0])):
-      if (combined[i-1] == j-B):
+      if (combined[i-1] == j-A):
         mat[i,j] = True
 
       if mat[i-1,j]:
@@ -28,12 +26,8 @@ def question02(cashFlowIn, cashFlowOut):
       if ( j-combined[i-1] >= 0 ) and ( j-combined[i-1] < len(mat[0]) ):
         if mat[i-1,j-combined[i-1]]:
           mat[i,j] = True
-          if j == B:
+          if j == A:
 
-            answer = 0
+            return = 0
 
-            return answer
-
-  answer = mat[len(combined),B:B+min(cashFlowIn)+1].tolist().index(True)
-
-  return answer
+  return mat[len(combined),A:].tolist().index(True)
