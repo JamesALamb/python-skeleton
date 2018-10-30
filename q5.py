@@ -22,8 +22,6 @@ def question05(allowedAllocations, totalValue):
       mat_new[i] = True
     mat_old = [x for x in mat_new]
     c=2
-    print allowedAllocations, totalValue
-    print totalValue/min(allowedAllocations)
     for i in range(totalValue/min(allowedAllocations)):
       for j in range(totalValue+1):
         if j <= c*A:
@@ -35,7 +33,6 @@ def question05(allowedAllocations, totalValue):
                 return c
 
       mat_old = [x for x in mat_new]
-      print c, mat_old
       c += 1
 
   if not mat_old[totalValue]:
