@@ -10,7 +10,7 @@ def question02(cashFlowIn, cashFlowOut):
   combined = np.append(O,I)
   if 0 in combined:
 
-    return = 0
+    return 0
 
   A = sum(cashFlowOut)
   B = min(cashFlowIn)
@@ -28,6 +28,6 @@ def question02(cashFlowIn, cashFlowOut):
           mat[i,j] = True
           if j == A:
 
-            return = 0
+            return 0
 
   return mat[len(combined),A:].tolist().index(True)
