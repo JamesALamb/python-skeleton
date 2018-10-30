@@ -19,7 +19,8 @@ def question05(allowedAllocations, totalValue):
     A = max(allowedAllocations)
     mat_new = np.full((totalValue+1), False, dtype=bool)
     for i in allowedAllocations:
-      mat_new[i] = True
+      if i <= totalValue:
+        mat_new[i] = True
     mat_old = [x for x in mat_new]
     c=2
     for i in range(totalValue/min(allowedAllocations)):
