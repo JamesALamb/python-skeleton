@@ -27,10 +27,11 @@ def question05(allowedAllocations, totalValue):
         if j <= c*A:
           if mat_old[j]:
             for k in allowedAllocations:
-              mat_new[j+k] = True
-              if j+k == totalValue:
+              if j+k <= totalValue:
+                mat_new[j+k] = True
+                if j+k == totalValue:
 
-                return c
+                  return c
 
       mat_old = [x for x in mat_new]
       c += 1
