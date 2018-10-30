@@ -27,4 +27,10 @@ def question03(numNodes, edgeList):
   X = len(TrEx)
   Y = len(NotTrEx)
 
-  return X-Y
+  if X > Y:
+
+    return X-Y
+
+  else:
+
+    return 0
