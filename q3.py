@@ -23,6 +23,4 @@ def question03(numNodes, edgeList):
   X = len(TrEx)
   Y = len(NotTrEx)
 
-  answer = X-Y
-
-  return answer
+  return X-Y

@@ -6,9 +6,7 @@ def question06(numServers, targetServer, times):
   # modify and then return the variable below
   if targetServer == 0:
 
-    answer = 0
-
-    return answer
+    return 0
 
   fastest_times = times[0]
   visited = [0]
@@ -27,7 +25,4 @@ def question06(numServers, targetServer, times):
     if (visit == targetServer):
       break
 
-  answer = fastest_times[targetServer]
-
-  return answer
-
+  return fastest_times[targetServer]

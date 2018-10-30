@@ -6,7 +6,9 @@ import numpy as np
 def question01(portfolios):
   # modify and then return the variable below
   if len(portfolios) < 2:
+
     return 0
+
   big = len(bin(max(portfolios))[2:])
   answer = 0
   d0 = 0
@@ -50,9 +52,7 @@ def question01(portfolios):
   
             else:
   
-              answer = int(c, 2)
-  
-              return answer
+              return int(c, 2)
 
   return answer
 

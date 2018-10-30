@@ -25,8 +25,6 @@ def question04(rows, numberMachines):
           values = []
 
   if totals == []:
-    answer = 0
+    return 0
   else:
-    answer = min(totals)
-
-  return answer
+    return min(totals)
