@@ -141,6 +141,7 @@ def runq3_main():
                 p.join()
             else:
                 correct = return_dict['output'] == q3test["output"]
+                print(q3input["numNodes"], q3input["edges"], return_dict['output'], q3test["output"])
                 response.append({
                         "teamName": teamname,
                         "questionNumber": 3,

@@ -4,6 +4,10 @@ import numpy as np
 
 def question03(numNodes, edgeList):
   # modify and then return the variable below
+  if edgeList == []:
+
+    return numNodes
+
   TrEx=set(range(1,numNodes+1))
   NotTrEx=set()
   
