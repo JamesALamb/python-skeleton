@@ -87,7 +87,7 @@ def runq2_main():
             if p.is_alive():
                 # Terminate
                 print("A question 2 test has timed out. Each individual test has a maximum of one second to run.")
-                print(q5input["numNodes"], q5input["edges"], return_dict['output'], q5test["output"])
+                print(q2input["numNodes"], q2input["edges"], return_dict['output'], q2test["output"])
                 p.terminate()
                 p.join()
             else:

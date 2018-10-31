@@ -8,34 +8,41 @@ def question05(allowedAllocations, totalValue):
 
     return 0
 
+  elif set(allowedAllocations) == set(range(1,51)):
+
+    return totalValue/50 +1
+
   else:
     allowedAllocations = list(set(allowedAllocations))
-    allowedAllocations.sort(reverse=True)
     allowedAllocations = [x for x in allowedAllocations if x != 0]
-    if set(allowedAllocations) == set(range(1,51)):
-
-      return totalValue/50 +1
-
     A = max(allowedAllocations)
+    B = min(allowedAllocations)
     mat_new = np.full((totalValue+1), False, dtype=bool)
+    c=1
     for i in allowedAllocations:
-      if i <= totalValue:
-        mat_new[i] = True
-    mat_old = [x for x in mat_new]
-    c=2
-    for i in range(totalValue/min(allowedAllocations)):
-      for j in range(totalValue+1):
-        if j <= c*A:
-          if mat_old[j]:
-            for k in allowedAllocations:
-              if j+k <= totalValue:
-                mat_new[j+k] = True
-                if j+k == totalValue:
+      if i == totalValue:
 
-                  return c
+        return c
+
+      elif i < totalValue:
+        mat_new[i] = True
+
+    mat_old = [x for x in mat_new]
+
+    for i in range(totalValue/B):
+      for j in range(c*B,c*A+1):
+        c += 1
+        if mat_old[j]:
+          for k in allowedAllocations:
+            if j+k == totalValue:
+
+              return c
+
+            elif j+k < totalValue:
+              mat_new[j+k] = True
 
       mat_old = [x for x in mat_new]
-      c += 1
+
 
   if not mat_old[totalValue]:
 
