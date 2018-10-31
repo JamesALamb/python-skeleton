@@ -8,7 +8,7 @@ def question05(allowedAllocations, totalValue):
 
     return 0
 
-  elif totalValue%max(allowedAllocations) == 0
+  elif totalValue%max(allowedAllocations) == 0:
 
     return totalValue/max(allowedAllocations)
 
