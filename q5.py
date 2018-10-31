@@ -17,6 +17,12 @@ def question05(allowedAllocations, totalValue):
     allowedAllocations = [x for x in allowedAllocations if x != 0]
     A = max(allowedAllocations)
     B = min(allowedAllocations)
+    C = totalValue/B
+    lA = range(1,C+1) 
+    lB = range(1,C+1)    
+    lA = [min(A*x, totalValue) for x in lA]
+    lB = [B*x for x in lB]
+
     mat_new = np.full((totalValue+1), False, dtype=bool)
     c=1
     for i in allowedAllocations:
@@ -29,8 +35,8 @@ def question05(allowedAllocations, totalValue):
 
     mat_old = [x for x in mat_new]
 
-    for i in range(totalValue/B):
-      for j in range(c*B,c*A+1):
+    for i in range(C):
+      for j in range(lB[i],lA[i]+1):
         c += 1
         if mat_old[j]:
           for k in allowedAllocations:
@@ -41,7 +47,7 @@ def question05(allowedAllocations, totalValue):
             elif j+k < totalValue:
               mat_new[j+k] = True
 
-      mat_old = [x for x in mat_new]
+        mat_old = [x for x in mat_new]
 
 
   if not mat_old[totalValue]:
