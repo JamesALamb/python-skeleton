@@ -8,9 +8,13 @@ def question05(allowedAllocations, totalValue):
 
     return 0
 
-  elif set(allowedAllocations) == set(range(1,51)):
+  elif totalValue%max(allowedAllocations) == 0
 
-    return totalValue/50 +1
+    return totalValue/max(allowedAllocations)
+
+  elif totalValue%max(allowedAllocations) in allowedAllocations:
+
+    return totalValue/max(allowedAllocations) + 1
 
   else:
     allowedAllocations = list(set(allowedAllocations))

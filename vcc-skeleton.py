@@ -87,13 +87,10 @@ def runq2_main():
             if p.is_alive():
                 # Terminate
                 print("A question 2 test has timed out. Each individual test has a maximum of one second to run.")
-                print(q2input["numNodes"], q2input["edges"], return_dict['output'], q2test["output"])
                 p.terminate()
                 p.join()
             else:
                 correct = return_dict['output'] == q2test["output"]
-                if not correct:
-                    print(q2input["numNodes"], q2input["edges"], return_dict['output'], q2test["output"])
                 response.append({
                         "teamName": teamname,
                         "questionNumber": 2,
@@ -244,9 +241,6 @@ def runq5_main():
                 p.join()
             else:
                 correct = return_dict['output'] == q5test["output"]
-                if not correct:
-                    print(q5input["numNodes"], q5input["edges"], return_dict['output'], q5test["output"])
-
                 response.append({
                     "teamName": teamname,
                     "questionNumber": 5,
@@ -297,8 +291,6 @@ def runq6_main():
                 p.join()
             else:
                 correct = return_dict['output'] == q6test["output"]
-                if not correct:
-                    print(q6input["numNodes"], q6input["edges"], return_dict['output'], q6test["output"])
                 response.append({
                     "teamName": teamname,
                     "questionNumber": 6,
